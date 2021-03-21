@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="br.com.pact.signupservice.contract.consumer.SignupConsumerContractTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-23T00:11:28" hostname="Viniciuss-MBP" time="1.113">
+  <properties/>
+  <testcase name="When requesting to account service to create an account" classname="br.com.pact.signupservice.contract.consumer.SignupConsumerContractTest" time="1.113"/>
+  <system-out><![CDATA[2021-02-22 21:11:28.022 [Test worker] DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - Found @PactTestFor annotation on test method
+2021-02-22 21:11:28.022 [Test worker] DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - Found @PactTestFor annotation on test class
+2021-02-22 21:11:28.027 [Test worker] DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - Looking for @Pact method named 'createAccountTest' for provider 'account-service'
+2021-02-22 21:11:28.031 [Test worker] DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - Invoking method 'createAccountTest' to get Pact for the test 'testCreateAccount'
+2021-02-22 21:11:28.172 [Test worker] DEBUG a.c.d.p.consumer.BaseJdkMockServer - Starting mock server
+2021-02-22 21:11:28.183 [Test worker] DEBUG a.c.d.p.consumer.BaseJdkMockServer - Mock server started: /127.0.0.1:59311
+2021-02-22 21:11:28.771 [Test worker] DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - providerInfo = ProviderInfo(providerName=account-service, hostInterface=, port=, pactVersion=null, providerType=null)
+2021-02-22 21:11:28.872 [HTTP-Dispatcher] DEBUG a.c.d.p.consumer.BaseJdkMockServer - Received request: 	method: POST
+	path: /accounts
+	query: {}
+	headers: {Accept-encoding=[gzip,deflate], Connection=[Keep-Alive], Host=[localhost:59311], User-agent=[Apache-HttpClient/4.5.5 (Java/11.0.5)], Content-type=[application/json; charset=UTF-8], Content-length=[58]}
+	matchers: MatchingRules(rules={})
+	generators: Generators(categories={})
+	body: PRESENT({
+  "person_id" : "165ffbea-ea05-41e3-b7b5-d31b94afc878"
+})
+2021-02-22 21:11:28.875 [HTTP-Dispatcher] DEBUG a.c.d.p.c.matchers.RequestMatching - comparing to expected request: 
+	method: POST
+	path: /accounts
+	query: {}
+	headers: {Content-Type=[application/json; charset=UTF-8]}
+	matchers: MatchingRules(rules={body=Category(name=body, matchingRules={$.person_id=MatchingRuleGroup(rules=[RegexMatcher(regex=[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}, example=null)], ruleLogic=AND)})})
+	generators: Generators(categories={BODY={$.person_id=au.com.dius.pact.core.model.generators.UuidGenerator@55b37a59}})
+	body: PRESENT({"person_id":"e2490de5-5bd3-43d5-b7c4-526e33f71304"})
+2021-02-22 21:11:28.889 [HTTP-Dispatcher] DEBUG a.c.d.p.core.matchers.HeaderMatcher - Comparing header 'Content-Type': 'application/json; charset=UTF-8' to 'application/json; charset=UTF-8'
+2021-02-22 21:11:28.891 [HTTP-Dispatcher] DEBUG a.c.d.p.core.matchers.HeaderMatcher - Comparing content type header: 'application/json; charset=UTF-8' to 'application/json; charset=UTF-8'
+2021-02-22 21:11:28.898 [HTTP-Dispatcher] DEBUG a.c.dius.pact.core.matchers.Matching - Found a matcher for application/json -> au.com.dius.pact.core.matchers.JsonBodyMatcher@3a5ab08b
+2021-02-22 21:11:28.908 [HTTP-Dispatcher] DEBUG a.c.d.p.c.matchers.JsonBodyMatcher - compareValues: Matcher defined for path [$, person_id]
+2021-02-22 21:11:28.914 [HTTP-Dispatcher] DEBUG a.c.d.p.c.matchers.MatcherExecutor - comparing "165ffbea-ea05-41e3-b7b5-d31b94afc878" with regexp [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} at [$, person_id] -> true
+2021-02-22 21:11:28.914 [HTTP-Dispatcher] DEBUG a.c.d.p.c.matchers.RequestMatching - Request mismatch: []
+2021-02-22 21:11:28.924 [HTTP-Dispatcher] DEBUG a.c.d.p.consumer.BaseJdkMockServer - Generating response: 	status: 201
+	headers: {Content-Type=[application/json; charset=UTF-8]}
+	matchers: MatchingRules(rules={body=Category(name=body, matchingRules={$.id=MatchingRuleGroup(rules=[RegexMatcher(regex=[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}, example=null)], ruleLogic=AND), $.balance=MatchingRuleGroup(rules=[NumberTypeMatcher(numberType=NUMBER)], ruleLogic=AND)}), header=Category(name=header, matchingRules={Content-Type=MatchingRuleGroup(rules=[RegexMatcher(regex=application/json(;\s?charset=[\w\-]+)?, example=null)], ruleLogic=AND)})})
+	generators: Generators(categories={BODY={$.id=au.com.dius.pact.core.model.generators.UuidGenerator@55b37a59}})
+	body: PRESENT({"balance":0,"id":"295fb73c-3cfb-4233-8b97-a075f45acb5e"})
+2021-02-22 21:11:29.097 [Test worker] DEBUG a.c.d.p.consumer.BaseJdkMockServer - Mock server shutdown
+2021-02-22 21:11:29.110 [Test worker] DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - Writing pact signup-service -> account-service to file build/pacts/signup-service-account-service.json
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
