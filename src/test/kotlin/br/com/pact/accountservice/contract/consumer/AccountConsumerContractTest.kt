@@ -36,7 +36,8 @@ class AccountConsumerContractTest {
             .uuid("person_id")
 
         return builder
-            .given("Create account message")
+            .given("Create account")
+            .expectsToReceive("message with person id")
             .withContent(json)
             .toPact()
     }
